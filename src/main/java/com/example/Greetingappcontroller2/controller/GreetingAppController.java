@@ -4,17 +4,22 @@ import com.example.Greetingappcontroller2.service.GreetingAppService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(value = "/welcome")
 public class GreetingAppController {
 
-//    @Autowired
-//    private GreetingAppService greetingAppService;
+    @Autowired
+    private GreetingAppService greetingAppService;
 
-    @GetMapping(value = "/welcomeToThe-GreetingApp")
+    @GetMapping(value = "/test1")
     public String welcome(){
         return "welcome to greeting app";
+    }
+    @GetMapping(value ="/test2")
+    public GreetingAppService findByid(@RequestParam int id){
+         return greetingAppService.findById(id);
     }
 }
