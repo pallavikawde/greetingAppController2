@@ -5,4 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface GreetingApp extends JpaRepository<GreetingAppModel,Integer> {
 
+    void delet(GreetingAppModel greetingAppModel);
 }

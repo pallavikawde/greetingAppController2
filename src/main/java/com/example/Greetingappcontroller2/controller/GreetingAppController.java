@@ -36,7 +36,11 @@ public class GreetingAppController {
     public GreetingAppModel editlist(@RequestBody GreetingAppDto greetingAppDto,@PathVariable int id){
         return greetingAppService.updatedList(id,greetingAppDto);
     }
-    
+    @DeleteMapping(value = "/delet-perticular-id")
+    public GreetingAppModel deletList(@RequestParam int id){
+        return GreetingAppService.deletedList(id);
+    }
+
 
 
 }

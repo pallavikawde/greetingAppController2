@@ -13,7 +13,14 @@ import java.util.Optional;
 public class GreetingAppService {
 
     @Autowired
-    private GreetingApp greetingApp;
+    private static GreetingApp greetingApp;
+
+    public static GreetingAppModel deletedList(int id) {
+        Optional<GreetingAppModel>greetingAppModel = greetingApp.findById(id);
+        if(greetingAppModel.isPresent()){
+            greetingApp.delet(greetingAppModel.get());
+        }
+    }
 
     public GreetingAppService findById(int id){
         Optional<GreetingAppModel>greetingAppModel = greetingApp.findById(id);
